@@ -1,0 +1,58 @@
+from Tkinter import *
+from math import *
+root=Tk()
+root.title('my calculator')
+e=Entry(root,width=16,font='Calibri 30 bold',bd=10,bg='white',foreground='black',justify='right')
+e.grid(row=0,column=0,columnspan=4)
+def add_entry(x):
+    e.insert(16,x)
+def result(x):
+    e.delete(0,END)
+    e.insert(16,x)
+def sinf(x):
+    a=degrees(int(x))
+    b=sin(a)
+    e.delete(0,END)
+    e.insert(16,b)
+def sqrtf(x):
+    a=int(x)**0.5
+    e.delete(0,END)
+    e.insert(16,a)
+def sqrf(x):
+    a=int(x)**2
+    e.delete(0,END)
+    e.insert(16,a)
+def clearall():
+    e.delete(0,END)
+def clear():
+    e.delete(len(e.get())-1)
+def exponential(x):
+    a=int(x)**y
+    e.delete(0,END)
+    e.insert(16,a)
+Button(root,text='7',width=5,height=3,command=lambda:add_entry('7'),bd=5,bg='black',foreground='white').grid(row=1,column=0,sticky=E+W+N+S)
+Button(root,text='8',width=5,height=3,command=lambda:add_entry('8'),bd=5,bg='black',foreground='white').grid(row=1,column=1,sticky=E+W+N+S)
+Button(root,text='9',width=5,height=3,command=lambda:add_entry('9'),bd=5,bg='black',foreground='white').grid(row=1,column=2,sticky=E+W+N+S)
+Button(root,text='/',width=5,height=3,command=lambda:add_entry('/'),bd=5,bg='black',foreground='white').grid(row=1,column=3,sticky=E+W+N+S)
+Button(root,text='4',width=5,height=3,command=lambda:add_entry('4'),bd=5,bg='black',foreground='white').grid(row=2,column=0,sticky=E+W+N+S)
+Button(root,text='5',width=5,height=3,command=lambda:add_entry('5'),bd=5,bg='black',foreground='white').grid(row=2,column=1,sticky=E+W+N+S)
+Button(root,text='6',width=5,height=3,command=lambda:add_entry('6'),bd=5,bg='black',foreground='white').grid(row=2,column=2,sticky=E+W+N+S)
+Button(root,text='*',width=5,height=3,command=lambda:add_entry('*'),bd=5,bg='black',foreground='white').grid(row=2,column=3,sticky=E+W+N+S)
+Button(root,text='1',width=5,height=3,command=lambda:add_entry('1'),bd=5,bg='black',foreground='white').grid(row=3,column=0,sticky=E+W+N+S)
+Button(root,text='2',width=5,height=3,command=lambda:add_entry('2'),bd=5,bg='black',foreground='white').grid(row=3,column=1,sticky=E+W+N+S)
+Button(root,text='3',width=5,height=3,command=lambda:add_entry('3'),bd=5,bg='black',foreground='white').grid(row=3,column=2,sticky=E+W+N+S)
+Button(root,text='-',width=5,height=3,command=lambda:add_entry('-'),bd=5,bg='black',foreground='white').grid(row=3,column=3,sticky=E+W+N+S)
+Button(root,text='0',width=5,height=3,command=lambda:add_entry('0'),bd=5,bg='black',foreground='white').grid(row=4,column=0,sticky=E+W+N+S)
+Button(root,text='.',width=5,height=3,command=lambda:add_entry('.'),bd=5,bg='black',foreground='white').grid(row=4,column=1,sticky=E+W+N+S)
+Button(root,text='+',width=5,height=3,command=lambda:add_entry('+ '),bd=5,bg='black',foreground='white').grid(row=4,column=2,sticky=E+W+N+S)
+Button(root,text='=',width=5,height=3,command=lambda:result(eval(e.get())),bd=5,bg='black',foreground='white').grid(row=4,column=3,sticky=E+W+N+S)
+Button(root,text='sin',width=5,height=3,command=lambda:sinf(e.get()),bd=5,bg='black',foreground='white').grid(row=5,column=0,sticky=E+W+N+S)
+Button(root,text='sqrt',width=5,height=3,command=lambda:sqrtf(e.get()),bd=5,bg='black',foreground='white').grid(row=5,column=1,sticky=E+W+N+S)
+Button(root,text='sqr',width=5,height=3,command=lambda:sqrf(e.get()),bd=5,bg='black',foreground='white').grid(row=5,column=2,sticky=E+W+N+S)
+Button(root,text='^',width=5,height=3,command=lambda:po(e.get()),bd=5,bg='black',foreground='white').grid(row=5,column=3,sticky=E+W+N+S)
+Button(root,text='C',width=5,height=3,command=lambda:clearall(),bd=5,bg='black',foreground='white').grid(row=6,column=0,sticky=E+W+N+S)
+Button(root,text='CE',width=5,height=3,command=lambda:clear(),bd=5,bg='black',foreground='white').grid(row=6,column=1,sticky=E+W+N+S)
+Button(root,text='%',width=5,height=3,command=lambda:add_entry('%'),bd=5,bg='black',foreground='white').grid(row=6,column=2,sticky=E+W+N+S)
+Button(root,text='^',width=5,height=3,command=lambda:exponential('^'),bd=5,bg='black',foreground='white').grid(row=6,column=3,sticky=E+W+N+S)
+
+mainloop()
